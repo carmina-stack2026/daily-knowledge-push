@@ -1,0 +1,43 @@
+name: 每日知识推送
+
+on:
+  schedule:
+    # 每天 UTC 00:00 = 北京时间 08:00
+    - cron: '0 0 * * *'
+
+  # 支持手动触发（用于测试）
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出代码
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      # 2. 设置 Python
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. 安装依赖
+      - name: 安装依赖
+        run: pip install requests
+
+      # 4. 执行推送
+      - name: 执行推送
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python push.py
+
+      # 5. 提交历史记录更新
+      - name: 提交历史记录
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add history.json
+          git diff --cached --quiet || git commit -m "📖 更新推送历史 $(date +%Y-%m-%d)"
+          git push
