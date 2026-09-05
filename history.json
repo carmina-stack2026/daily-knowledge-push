@@ -76,5 +76,11 @@
     "title": "嫦娥奔月",
     "category": "myth",
     "date": "2026-09-04"
+  },
+  {
+    "id": "custom_001",
+    "title": "春节贴春联：神荼与郁垒",
+    "category": "custom",
+    "date": "2026-09-05"
   }
 ]
