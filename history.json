@@ -370,5 +370,11 @@
     "title": "马丁·路德·金：我有一个梦想",
     "category": "history",
     "date": "2026-10-23"
+  },
+  {
+    "id": "custom_003",
+    "title": "中秋赏月：嫦娥奔月与月饼起义",
+    "category": "custom",
+    "date": "2026-10-24"
   }
 ]
