@@ -580,5 +580,11 @@
     "title": "潘多拉的盒子",
     "category": "myth",
     "date": "2026-11-27"
+  },
+  {
+    "id": "fable_001",
+    "title": "龟兔赛跑",
+    "category": "fable",
+    "date": "2026-11-28"
   }
 ]
